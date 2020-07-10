@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  logs_db:
+    container_name: logs_db
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=logs
+      - POSTGRES_USER=logs
+    ports:
+      - 5535:5432
