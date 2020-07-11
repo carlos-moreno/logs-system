@@ -10,8 +10,8 @@ class AgentSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-    agent_id = serializers.UUIDField()
-    user_id = serializers.UUIDField()
+    agent_id = serializers.UUIDField(help_text="Agent where the event took place.")
+    user_id = serializers.UUIDField(help_text="User who reported the event.")
 
     class Meta:
         model = Event

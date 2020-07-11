@@ -1,18 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-
-from codenation.account.views import UserViewSet
-from codenation.core.views import AgentViewSet, EventViewSet
-
 from rest_framework.documentation import include_docs_urls
 
+from codenation.core.views import AgentViewSet, EventViewSet
 
 API_TITLE = 'API Logs System'
 API_DESCRIPTION = 'Documentation Logs System API'
 
 router = routers.DefaultRouter()
-router.register('users', UserViewSet)
 router.register('agents', AgentViewSet, basename='agent')
 router.register('events', EventViewSet)
 
