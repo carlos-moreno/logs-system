@@ -4,13 +4,8 @@ env:
 language: python
 python:
   - '3.8'
-services:
-  - postgresql
 before_script:
-  - psql -c "CREATE DATABASE travisci;" -U postgres
   - cp contrib/env-sample .env
-  - unset DATABASE_URL
-  - export DATABASE_URL=postgres://postgres@localhost/travisci
   - pip install pip -U
   - pip install -r requirements.txt
   - pip install coverage
