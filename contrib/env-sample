@@ -1,7 +1,6 @@
 SECRET_KEY=THIS_IS_SAMPLE
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com
-DATABASE_URL=postgres://logs_system:logs_system@localhost:5435/logs_system
 
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 EMAIL_HOST=localhost
