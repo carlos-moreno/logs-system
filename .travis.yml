@@ -6,6 +6,7 @@ python:
   - '3.8'
 before_script:
   - cp contrib/env-sample .env
+  - unset DATABASE_URL
   - pip install pip -U
   - pip install -r requirements.txt
   - pip install coverage
