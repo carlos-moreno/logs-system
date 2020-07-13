@@ -19,6 +19,11 @@ before_script:
     > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
+script:
+  - coverage run manage.py test
+after_script:
+  - coverage xml
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 #stages:
 #  - name: check
 #  - name: coverage
