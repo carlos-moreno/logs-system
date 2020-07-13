@@ -19,20 +19,20 @@ before_script:
     > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
-stages:
-  - name: check
-  - name: coverage
-jobs:
-  include:
-  - stage: check
-    name: checking application integrity
-    script:
-      - python manage.py check
-  - stage: coverage
-    name: test and send coverage result to codeclimate
-    script:
-      - coverage run manage.py test
-    after_script:
-      - coverage xml
-      - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-
+#stages:
+#  - name: check
+#  - name: coverage
+#jobs:
+#  include:
+#  - stage: check
+#    name: checking application integrity
+#    script:
+#      - python manage.py check
+#  - stage: coverage
+#    name: test and send coverage result to codeclimate
+#    script:
+#      - coverage run manage.py test
+#    after_script:
+#      - coverage xml
+#      - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+#
