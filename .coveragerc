@@ -1,0 +1,15 @@
+[run]
+source=codenation
+omit =
+    # omit __init__
+    *__init__.py*
+    # omit migrations
+    *migrations*
+    # omit staticfiles
+    *staticfiles*
+    # omit */apps
+    *apps.py*
+    # omit wsgi.py
+    *wsgi.py*
+    # omit asgi.py
+    *asgi.py*
