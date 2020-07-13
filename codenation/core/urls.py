@@ -8,5 +8,5 @@ router.register('agents', AgentViewSet)
 router.register('events', EventViewSet)
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+    path('', include(router.urls)),
 ]
