@@ -28,16 +28,16 @@ jobs:
   - stage: check
     name: checking application integrity
     script:
-    - python manage.py check
+      - python manage.py check
   - stage: tests
     name: testing the application
     script:
-    - python manage.py test
+      - python manage.py test
   - stage: coverage
     name: send coverage result to codeclimate
     script:
-    - coverage run manage.py test
+      - coverage run manage.py test
     after_script:
-    - coverage xml
-    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+      - coverage xml
+      - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 
