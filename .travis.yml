@@ -21,7 +21,6 @@ before_script:
   - "./cc-test-reporter before-build"
 stages:
   - name: check
-  - name: tests
   - name: coverage
 jobs:
   include:
@@ -29,12 +28,8 @@ jobs:
     name: checking application integrity
     script:
       - python manage.py check
-  - stage: tests
-    name: testing the application
-    script:
-      - python manage.py test
   - stage: coverage
-    name: send coverage result to codeclimate
+    name: test and send coverage result to codeclimate
     script:
       - coverage run manage.py test
     after_script:
