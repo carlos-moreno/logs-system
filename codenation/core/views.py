@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework import viewsets
@@ -63,3 +64,7 @@ class EventViewSet(viewsets.ModelViewSet):
     filterset_fields = ["level", "occurrences"]
     search_fields = ["level", "occurrences"]
     ordering_fields = ["level", "occurrences"]
+
+
+def documentation_api(request):
+    return redirect("https://app.swaggerhub.com/apis-docs/carlos-moreno/Logs-System/1.0.0")
