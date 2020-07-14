@@ -1,6 +1,5 @@
-from django.core.exceptions import ValidationError
-from django.test import TestCase
 from django.core import mail
+from django.test import TestCase
 
 from codenation.account.models import User
 
@@ -11,13 +10,13 @@ class UserModelTest(TestCase):
             first_name="Fulano",
             last_name="de Tal",
             email="fulano@xpto.com",
-            password="xpto123"
+            password="xpto123",
         )
         self.user_admin = User.objects.create_superuser(
             first_name="Beltrano",
             last_name="de Tal",
             email="beltrano@xpto.com",
-            password="xpto123"
+            password="xpto123",
         )
 
     def test_create_user(self):
@@ -25,14 +24,33 @@ class UserModelTest(TestCase):
         self.assertTrue(User.objects.exists())
 
     def test_email_error(self):
-        """Must validate if email is valid"""
-        user = User(
-            first_name="Ciclano",
-            last_name="de Tal",
-            email="ciclano",
-            password="xpto123"
-        )
-        self.assertRaises(ValidationError, user.full_clean)
+        """Should return an ValueError when trying to register without email"""
+        with self.assertRaises(ValueError):
+            User.objects.create_superuser(
+                first_name="Ciclano", last_name="de Tal", password="foo"
+            )
+
+    def test_is_staff_error(self):
+        """Should return an ValueError when trying to register superuser with is_staff false"""
+        with self.assertRaises(ValueError):
+            User.objects.create_superuser(
+                first_name="Ciclano",
+                last_name="de Tal",
+                email="ciclano@xpto.com",
+                password="foo",
+                is_staff=False,
+            )
+
+    def test_is_superuser_error(self):
+        """Should return an ValueError when trying to register superuser with is_superuser false"""
+        with self.assertRaises(ValueError):
+            User.objects.create_superuser(
+                first_name="Ciclano",
+                last_name="de Tal",
+                email="ciclano@xpto.com",
+                password="foo",
+                is_superuser=False,
+            )
 
     def test_user_is_staff(self):
         """Must return True if user is staff"""
@@ -63,9 +81,11 @@ class UserModelTest(TestCase):
         self.assertTrue(self.user_common, u)
 
     def test_send_email(self):
-        self.user_common.email_user('Cadastro realizado com sucesso',
-                                    'O seu cadastro foi realizado com sucesso no sistema.',
-                                    'suporte@xpto.com',
-                                    fail_silently=False)
+        self.user_common.email_user(
+            "Cadastro realizado com sucesso",
+            "O seu cadastro foi realizado com sucesso no sistema.",
+            "suporte@xpto.com",
+            fail_silently=False,
+        )
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, 'Cadastro realizado com sucesso')
+        self.assertEqual(mail.outbox[0].subject, "Cadastro realizado com sucesso")
