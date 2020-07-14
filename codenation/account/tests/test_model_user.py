@@ -52,6 +52,9 @@ class UserModelTest(TestCase):
                 is_superuser=False,
             )
 
+    def test_clean(self):
+        self.assertIsNone(self.user_admin.clean())
+
     def test_user_is_staff(self):
         """Must return True if user is staff"""
         self.assertTrue(self.user_admin.is_staff)
