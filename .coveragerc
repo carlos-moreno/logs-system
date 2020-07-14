@@ -13,3 +13,5 @@ omit =
     *wsgi.py*
     # omit asgi.py
     *asgi.py*
+    # mit admin
+    */admin.py*
