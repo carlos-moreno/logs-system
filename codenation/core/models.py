@@ -18,7 +18,8 @@ class Agent(models.Model):
         _("environment"), max_length=15, choices=ENVIRONMENTS, help_text="Agent environment type."
     )
     version = models.CharField(_("version"), max_length=5, help_text="Agent version.")
-    address = models.GenericIPAddressField(_("ip address"), help_text="Agent ip address.")
+    address = models.GenericIPAddressField(_("ip address"), help_text="Agent ip address.",
+                                           unique=True)
 
     class Meta:
         db_table = "agent"
