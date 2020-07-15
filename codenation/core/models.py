@@ -54,7 +54,8 @@ class Event(models.Model):
         return f"{self.level} : {self.agent.environment} : {self.agent.address}"
 
     def save(self, *args, **kwargs):
-        self.occurrences = self.number_of_occurrences()
+        if not self.pk:
+            self.occurrences = self.number_of_occurrences()
         super(Event, self).save(*args, **kwargs)
 
     def number_of_occurrences(self):
