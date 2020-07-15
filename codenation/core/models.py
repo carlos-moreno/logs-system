@@ -42,7 +42,7 @@ class Event(models.Model):
                                   help_text="Event has been shelved.")
     received_in = models.DateField(_("received in"), auto_now_add=True,
                                    help_text="Date of received of the event.")
-    occurrences = models.IntegerField(_("occurrences"), editable=False,
+    occurrences = models.IntegerField(_("occurrences"), blank=True, editable=False,
                                       help_text="Number of event occurrences.")
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -54,7 +54,7 @@ class Event(models.Model):
         return f"{self.level} : {self.agent.environment} : {self.agent.address}"
 
     def save(self, *args, **kwargs):
-        if not self.pk:
+        if not self.occurrences:
             self.occurrences = self.number_of_occurrences()
         super(Event, self).save(*args, **kwargs)
 
