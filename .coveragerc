@@ -13,5 +13,7 @@ omit =
     *wsgi.py*
     # omit asgi.py
     *asgi.py*
-    # mit admin
+    # omit admin
     */admin.py*
+    # omit permissions
+    */permissions.py*
