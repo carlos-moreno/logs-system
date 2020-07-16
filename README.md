@@ -1,11 +1,80 @@
 # Logs System
-
-Log system developed as a final challenge during the acceleration of 
-[Codenation](https://www.codenation.dev/) in partnership with [Stone](https://www.stone.com.br/).
-
 [![Build Status](https://travis-ci.org/carlos-moreno/logs-system.svg?branch=master)](https://travis-ci.org/carlos-moreno/logs-system)
 [![Updates](https://pyup.io/repos/github/carlos-moreno/logs-system/shield.svg)](https://pyup.io/repos/github/carlos-moreno/logs-system/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/020de6a6f7c5eb37638c/maintainability)](https://codeclimate.com/github/carlos-moreno/logs-system/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/020de6a6f7c5eb37638c/test_coverage)](https://codeclimate.com/github/carlos-moreno/logs-system/test_coverage)
 
- 
+Log system developed as a final challenge during the acceleration of 
+[Codenation](https://www.codenation.dev/) in partnership with [Stone](https://www.stone.com.br/).
+
+The system was developed as a proposal to be an API to centralize the receipt of logs and, thus, 
+improve the management of information about possible problems in the applications where the logs come from.
+
+
+## How to execute the project?
+
+1. Clone the repository
+2. Create a virtualenv with Python 3.6+
+3. Activate virtualenv
+4. Install the dependencies
+5. Configure the instance with .env
+6. Run migrate 
+7. Run the tests
+8. Create a superuser
+9. Start django
+
+```console
+git clone https://github.com/carlos-moreno/logs-system.git
+cd logs-system
+python -m venv .logs-system
+source .logs-system/bin/activate
+pip install -r requirements.txt
+cp contrib/env-sample .env
+python manage.py migrate
+python manage.py test
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+### System Url's
+```
+|----------------------------------------------------|
+| Description           | URLS                       |
+|----------------------------------------------------|
+| Documentation         | /                          |
+| List Users            | /api/v1/users/             |
+| Create User           | /api/v1/users/             |
+| Get user specific     | /api/v1/users/{id}/        |
+| Update User           | /api/v1/users/{id}/        |
+| Delete User           | /api/v1/users/{id}/        |
+| List Agents           | /api/v1/agents/            |
+| Create Agent          | /api/v1/agents/            |
+| Get Agent specific    | /api/v1/agents/{id}/       |
+| Update Agent          | /api/v1/agents/{id}/       |
+| Delete Agent          | /api/v1/agents/{id}/       |
+| List Events           | /api/v1/events/            |
+| Create Event          | /api/v1/events/            |
+| Get Event specific    | /api/v1/events/{id}/       |
+| Update Event          | /api/v1/events/{id}/       |
+| Delete Event          | /api/v1/events/{id}/       |
+| Get token             | /api/v1/get_token/         |
+| Refresh token         | /api/v1/refresh_token/     |
+|----------------------------------------------------|
+```
+
+### EndPoints and Verbs API
+```
+|--------------------------------------------|
+| Endpoints               | Verbs            |
+|--------------------------------------------|
+| /api/v1/users/          | GET, POST        |
+| /api/v1/users/{id}/     | GET, PUT, DELETE |
+| /api/v1/agents/         | GET, POST        |
+| /api/v1/agents/{id}/    | GET, PUT, DELETE |
+| /api/v1/events/         | GET, POST        |
+| /api/v1/events/{id}/    | GET, PUT, DELETE |
+| /api/v1/get_token/      | POST             |
+| /api/v1/refresh_token/  | POST             |
+|--------------------------------------------|
+```
+
