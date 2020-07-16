@@ -14,14 +14,15 @@ improve the management of information about possible problems in the application
 ## How to execute the project?
 
 1. Clone the repository
-2. Create a virtualenv with Python 3.6+
-3. Activate virtualenv
-4. Install the dependencies
-5. Configure the instance with .env
-6. Run migrate 
-7. Run the tests
-8. Create a superuser
-9. Start django
+2. Access the application directory
+3. Create a virtualenv with Python 3.6+
+4. Activate virtualenv
+5. Install the dependencies
+6. Configure the instance with .env
+7. Run migrate 
+8. Run the tests
+9. Create a superuser
+10. Start django
 
 ```console
 git clone https://github.com/carlos-moreno/logs-system.git
