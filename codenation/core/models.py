@@ -49,6 +49,7 @@ class Event(models.Model):
 
     class Meta:
         db_table = "event"
+        ordering = ("-received_in",)
 
     def __str__(self):
         return f"{self.level} : {self.agent.environment} : {self.agent.address}"
