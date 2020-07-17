@@ -23,6 +23,7 @@ class Agent(models.Model):
 
     class Meta:
         db_table = "agent"
+        ordering = ("-status",)
 
     def __str__(self):
         return f"{self.environment} : {self.name} : {self.address}"

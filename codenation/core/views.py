@@ -33,7 +33,7 @@ class AgentViewSet(viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["environment", "status"]
-    search_fields = ["name", "environment", "version", "address"]
+    search_fields = ["environment", "status", "version", "address"]
 
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -61,8 +61,8 @@ class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ["level", "occurrences"]
-    search_fields = ["level", "occurrences"]
+    filterset_fields = ["level", "message", "occurrences"]
+    search_fields = ["level", "message", "occurrences"]
     ordering_fields = ["level", "occurrences"]
 
 
