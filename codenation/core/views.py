@@ -8,26 +8,6 @@ from .serializers import AgentSerializer, EventSerializer
 
 
 class AgentViewSet(viewsets.ModelViewSet):
-    """
-    list:
-    Return a list of all the existing agents.
-
-    create:
-    Create a new agent instance.
-
-    retrieve:
-    Return the given agent.
-
-    update:
-    Update the agent.
-
-    partial_update:
-    Update the agent for field.
-
-    delete:
-    Delete the agent instance.
-    """
-
     queryset = Agent.objects.all()
     serializer_class = AgentSerializer
 
@@ -37,26 +17,6 @@ class AgentViewSet(viewsets.ModelViewSet):
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    """
-    list:
-    Return a list of all the existing agents.
-
-    create:
-    Create a new agent instance.
-
-    retrieve:
-    Return the given agent.
-
-    update:
-    Update the agent.
-
-    partial_update:
-    Update the agent for field.
-
-    delete:
-    Delete the agent instance.
-    """
-
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
