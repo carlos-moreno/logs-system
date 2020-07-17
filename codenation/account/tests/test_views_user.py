@@ -6,7 +6,6 @@ from codenation.account.models import User
 
 
 class UserViewTest(TestCase):
-
     def setUp(self):
         self.client = APIClient()
         self.resp = r("/api/v1/users/")
@@ -14,7 +13,7 @@ class UserViewTest(TestCase):
             "first_name": "Fulano",
             "last_name": "de Tal",
             "email": "fulano@xpto.com",
-            "password": "fulano123"
+            "password": "fulano123",
         }
 
     def test_get(self):
@@ -27,4 +26,4 @@ class UserViewTest(TestCase):
         resp = self.client.post(self.resp, self.data)
         self.assertEqual(resp.status_code, 201)
         self.assertEqual(User.objects.count(), 1)
-        self.assertEqual(User.objects.get().get_full_name(), 'Fulano de Tal')
+        self.assertEqual(User.objects.get().get_full_name(), "Fulano de Tal")

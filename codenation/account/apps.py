@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class AccountConfig(AppConfig):
-    name = 'codenation.account'
+    name = "codenation.account"
     verbose_name = "Account"
