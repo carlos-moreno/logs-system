@@ -10,6 +10,18 @@ Log system developed as a final challenge during the acceleration of
 The system was developed as a proposal to be an API to centralize the receipt of logs and, thus, 
 improve the management of information about possible problems in the applications where the logs come from.
 
+## Tools used in the project
+
+* [Python](https://www.python.org/)
+* [Django](https://www.djangoproject.com/)
+* [Django Rest Framework](https://www.django-rest-framework.org/)
+* [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html#)
+* [Swagger](https://swagger.io/)
+* [Code Climate](https://codeclimate.com/)
+* [Travis-CI](https://travis-ci.org/)
+* [Heroku](https://www.heroku.com/)
+* among other tools
+
 
 ## How to execute the project?
 
@@ -79,3 +91,11 @@ python manage.py runserver
 |--------------------------------------------|
 ```
 
+### Tip:
+
+If desired, the postgres database can be used in a docker container. To do this, simply set 
+the DATABASE_URL variable pointing to the data in the docker-compose file and run the 
+docker-compose.yml file as follows:
+```console
+docker-compose -f docker-compose.yml up -d
+```
