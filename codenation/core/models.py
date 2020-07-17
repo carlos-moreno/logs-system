@@ -7,19 +7,21 @@ from codenation.account.models import User
 
 
 class Agent(models.Model):
-    ENVIRONMENTS = [
-        (env, env) for env in ["PRODUCTION", "HOMOLOGATION", "DEVELOPMENT"]
-    ]
+    ENVIRONMENTS = [(env, env) for env in ["PRODUCTION", "HOMOLOGATION", "DEVELOPMENT"]]
 
     id = models.UUIDField(_("id"), primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(_("name"), max_length=50, help_text="Agent name.")
     status = models.BooleanField(_("status"), default=True, help_text="Agent status.")
     environment = models.CharField(
-        _("environment"), max_length=15, choices=ENVIRONMENTS, help_text="Agent environment type."
+        _("environment"),
+        max_length=15,
+        choices=ENVIRONMENTS,
+        help_text="Agent environment type.",
     )
     version = models.CharField(_("version"), max_length=5, help_text="Agent version.")
-    address = models.GenericIPAddressField(_("ip address"), help_text="Agent ip address.",
-                                           unique=True)
+    address = models.GenericIPAddressField(
+        _("ip address"), help_text="Agent ip address.", unique=True
+    )
 
     class Meta:
         db_table = "agent"
@@ -35,16 +37,24 @@ class Event(models.Model):
     ]
 
     id = models.UUIDField(_("id"), primary_key=True, default=uuid.uuid4, editable=False)
-    level = models.CharField(_("level"), max_length=20, choices=LEVELS,
-                             help_text="Event level.")
-    message = models.TextField(_("message"),
-                               help_text="Message pertinent to the event.")
-    shelved = models.BooleanField(_("shelved"), default=False,
-                                  help_text="Event has been shelved.")
-    received_in = models.DateField(_("received in"), auto_now_add=True,
-                                   help_text="Date of received of the event.")
-    occurrences = models.IntegerField(_("occurrences"), blank=True, editable=False,
-                                      help_text="Number of event occurrences.")
+    level = models.CharField(
+        _("level"), max_length=20, choices=LEVELS, help_text="Event level."
+    )
+    message = models.TextField(
+        _("message"), help_text="Message pertinent to the event."
+    )
+    shelved = models.BooleanField(
+        _("shelved"), default=False, help_text="Event has been shelved."
+    )
+    received_in = models.DateField(
+        _("received in"), auto_now_add=True, help_text="Date of received of the event."
+    )
+    occurrences = models.IntegerField(
+        _("occurrences"),
+        blank=True,
+        editable=False,
+        help_text="Number of event occurrences.",
+    )
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -62,8 +72,8 @@ class Event(models.Model):
 
     def number_of_occurrences(self):
         return (
-                Event.objects.filter(
-                    level=self.level, agent=self.agent, message=self.message
-                ).count()
-                + 1
+            Event.objects.filter(
+                level=self.level, agent=self.agent, message=self.message
+            ).count()
+            + 1
         )

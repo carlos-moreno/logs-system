@@ -60,11 +60,17 @@ class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filter_backends = [
+        DjangoFilterBackend,
+        filters.SearchFilter,
+        filters.OrderingFilter,
+    ]
     filterset_fields = ["level", "message", "occurrences"]
     search_fields = ["level", "message", "occurrences"]
     ordering_fields = ["level", "occurrences"]
 
 
 def documentation_api(request):
-    return redirect("https://app.swaggerhub.com/apis-docs/carlos-moreno/Logs-System/1.0.0")
+    return redirect(
+        "https://app.swaggerhub.com/apis-docs/carlos-moreno/Logs-System/1.0.0"
+    )

@@ -11,7 +11,7 @@ class AgentSerializerTest(TestCase):
             "name": "Debian",
             "status": True,
             "environment": "PRODUCTION",
-            "version": '10',
+            "version": "10",
             "address": "192.168.10.100",
         }
         self.agent = Agent(**self.expected_results)
@@ -33,7 +33,6 @@ class AgentSerializerTest(TestCase):
 
 
 class EventSerializerTest(TestCase):
-
     def setUp(self) -> None:
         self.expected_results = {
             "id": "fe243ac0-dc29-44d5-8362-b0d35a131826",

@@ -10,7 +10,7 @@ class AgentModelTest(TestCase):
             name="Debian",
             status=True,
             environment="PRODUCTION",
-            version='10',
+            version="10",
             address="192.168.10.100",
         )
 
@@ -25,7 +25,7 @@ class EventModelTest(TestCase):
             name="Debian",
             status=True,
             environment="PRODUCTION",
-            version='10',
+            version="10",
             address="192.168.10.100",
         )
         self.user = User.objects.create_user(
@@ -40,7 +40,7 @@ class EventModelTest(TestCase):
             shelved=True,
             received_in="2020-07-05",
             agent_id=self.agent.pk,
-            user_id=self.user.pk
+            user_id=self.user.pk,
         )
 
     def test_str(self):
