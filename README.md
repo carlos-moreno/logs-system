@@ -112,8 +112,8 @@ POST >> http://localhost:8000/api/v1/users/
 ```console
 body example
 {
-	"email": "fulano@xpto.com",
-	"password": "fulano123"
+    "email": "fulano@xpto.com",
+    "password": "fulano123"
 }
 POST >> http://localhost:8000/api/v1/get_token/
 ```
