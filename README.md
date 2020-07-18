@@ -91,6 +91,45 @@ python manage.py runserver
 |--------------------------------------------|
 ```
 
+## Query examples
+
+- List all users
+```console
+GET >> http://localhost:8000/api/v1/users/
+```
+- Create a new user
+```console
+body example
+{
+    "first_name": "Fulano",
+    "last_name": "de Tal",
+    "email": "fulano@xpto.com",
+    "password": "fulano123"
+}
+POST >> http://localhost:8000/api/v1/users/
+```
+- Get user token
+```console
+body example
+{
+	"email": "fulano@xpto.com",
+	"password": "fulano123"
+}
+POST >> http://localhost:8000/api/v1/get_token/
+```
+- List agents filtering by status
+```console
+GET >> http://localhost:8000/api/v1/agents/?status=true
+```
+- List events filtering by level
+```console
+GET >> http://localhost:8000/api/v1/events/?level=CRITICAL
+```
+- List events sorted by level
+```console
+GET >> http://localhost:8000/api/v1/events/?ordering=level
+```
+
 ### Tip:
 
 If desired, the postgres database can be used in a docker container. To do this, simply set 
