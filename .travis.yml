@@ -19,10 +19,3 @@ script:
 after_script:
 - coverage xml
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-deploy:
-  provider: heroku
-  api_key:
-    secure: wZWfFroLk9IkiRif+UL/+brDe8iU+NsRTZIqXYQK3bp0kUEmfhpwYeRQabDTChbpR/k9oqrV86+y2oejvay5jOUNn9fnbtBWftfhSJejzOzQ+XstWA5TobyHAMWzifqkjO+G28JKWqcN58YtlMUadlAYD9Ln/tUdeGm4u5+nDDoqt0WG+zrL7SlzgKRYD6dgE46xST8DR0MX2TM66ZHU/22ohY+RWtC+ZndnvP36BKu7qITxQEskGnfAQOr5SPcvvEpO9Z6OnmDeOHm+/yZJFc06uowTQSZnJkFY04SbHwxvGwcY6qgEj/q4/wYX2tVN/D3qFkgHSVGS4K9BZ4o8s95flv78B5I7SYjQ0XhGWzOiZa8cq1h1dIHCpcrwlbQ2U5RStIxJVf51IB8k7Ed4cpPo3XOdZQTDj+IcVgi7HJcap+8N8FbaJJnRmwkibnyX/5oqjUEgDuHcFkVhDPbxh2GtKQReXu4SeUle33ktOYtMIWhSkxW7isOnfnG+VaE+l6L7koS1BaUGATb8LgNir4GRdHMcYRGreWwYYqmLlo0lnhSe+MlI7ZCT+5m1cjpR40BYtlfwYD8D/93n5GC0XrQl3tlvhrRTFVYwuSpuDoo/TxnzW5FtOuCUGL8l4IUrlfD8VKHM+tYKQq6KoGsTPuvxHr4so3Q+30tuJx+k4Og=
-  app: carlos-moreno-logs-system
-  on:
-    repo: carlos-moreno/logs-system
