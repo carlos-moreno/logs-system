@@ -3,19 +3,19 @@ env:
   - secure: f3Uri42gxqeIdrLlv5EXRaUKAxpDeo8/e2dK9891aLtziJsepch1T9k663KzTXRT6yBo/aW179ULK5/i4cVA13uNDiv2pU/mVWjFlz4/Jjy8L2qjw4XBG0DCEnLvwk9H9wY0qIevKjY95CoytDV0xke4eAaNqAc6afbK8S35i6wslzS0ENHCuKiK6WcYL/dACybSfZI/sVRLRd7KrBRJauyhje2G3fAHsIqgh42D3xKtl4wev2rY0DDz/ZjYbp3qQxtUZ9fGUtKKRV4bUElQxxbRy4yzaRj97wXaEgtC5V3UoR+bnZXKy/r3v/9WTMXTvc+RqqzdGAkooNfY2zLczQ/zyrmZWL/aO41r7YqUFLORHKIr5kK1y8TpcrQC/vF7eAfOGJU+AFhq7p5xKTHLKrFN1gA/qTM9QkE8sLxkeClxStvFdmfEuM6Vfy/wx5OXE/6w0lohQz5aSf5VrGneKaFvHbUll5HcyspB8dtHh1iobSfJijw80Nim5CptmbScfRgaXKOw5WbYDlVbM8elKelOnSDBJE4PB7tvBRZ68tsToj3LHes++w6P1Lg4nBUNweLMFTzaWZLILRmwN3Y3I1mY3QlClfh3l6eSvlNj8v6f9M2EbuZfWVjMQVtx1Ki+gJx7OuuCdctBNzB1iidycXnCQ6d1+2amRY1ns9ZavdI=
 language: python
 python:
-- '3.8'
+  - '3.8'
 before_script:
-- cp contrib/env-sample .env
-- pip install pip -U
-- pip install -r requirements.txt
-- pip install coverage
-- python manage.py migrate --noinput
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-  > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - cp contrib/env-sample .env
+  - pip install pip -U
+  - pip install -r requirements.txt
+  - pip install coverage
+  - python manage.py migrate --noinput
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
 script:
-- coverage run manage.py test
+  - coverage run manage.py test
 after_script:
-- coverage xml
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - coverage xml
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
