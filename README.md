@@ -16,7 +16,7 @@ improve the management of information about possible problems in the application
 * [Django](https://www.djangoproject.com/)
 * [Django Rest Framework](https://www.django-rest-framework.org/)
 * [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html#)
-* [Swagger UI](https://swagger.io/)
+* [Swagger UI](https://swagger.io/tools/swagger-ui/)
 * [Code Climate](https://codeclimate.com/)
 * [Travis-CI](https://travis-ci.org/)
 * [Heroku](https://www.heroku.com/)
